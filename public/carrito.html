@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cana way | Carrito de Compras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Orelega+One&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/css/styles.css">
+  <link rel="icon" href="assets/icons/LOGO CANAWAY.png">
+</head>
+<body class="cart-page">
+  <header class="topbar">
+    <a class="brand" href="#" data-target="inicio" aria-label="Ir a inicio">
+      <img class="brand-logo" src="assets/icons/LOGO CANAWAY.png" alt="Cana way" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span class="brand-fallback">Cana way</span>
+    </a>
+
+    <nav class="menu" aria-label="Menu principal">
+      <a href="#" class="menu-link" data-target="inicio">Inicio</a>
+      <a href="#" class="menu-link" data-target="productos">Productos</a>
+      <a href="#" class="menu-link" data-target="contacto">Contacto</a>
+      <a href="#" class="menu-link cart" data-target="carrito" aria-label="Carrito">🛒</a>
+    </nav>
+  </header>
+
+  <main class="cart-main">
+    <h1 class="cart-title">Carrito de Compras</h1>
+
+    <div class="cart-container">
+      <!-- Columna izquierda: Datos del Contacto -->
+      <div class="cart-left">
+        <div class="cart-section">
+          <h2 class="cart-section-title">1. Datos del Contacto.</h2>
+          
+          <div class="form-group">
+            <label for="fullname">Nombre Completo:</label>
+            <input type="text" id="fullname" class="form-input" placeholder="Nombre Completo">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Número de Celular:</label>
+            <input type="tel" id="phone" class="form-input" placeholder="Número de Celular">
+          </div>
+
+          <div class="form-group">
+            <label for="address">Dirección de Envío:</label>
+            <input type="text" id="address" class="form-input" placeholder="Dirección de Envío">
+          </div>
+        </div>
+
+        <button class="btn-next">Siguiente --></button>
+      </div>
+
+      <!-- Columna derecha: Resumen del Pedido -->
+      <div class="cart-right">
+        <div class="cart-section">
+          <h2 class="cart-section-title">Resumen del Pedido</h2>
+          
+          <div id="cart-items" class="cart-items">
+            <p class="empty-cart-message">Tu carrito está vacío</p>
+          </div>
+
+          <div class="cart-shipping">
+            <label>Envío: <span class="shipping-option">Por Celular</span></label>
+          </div>
+
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="total-price" class="total-amount">$0</span>
+          </div>
+
+          <div class="cart-status">
+            <p>Verificando Stock</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast-notification" class="toast-notification">
+    <div class="toast-content">
+      <span class="toast-icon">✓</span>
+      <div class="toast-text">
+        <p id="toast-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../src/js/script.js"></script>
+</body>
+</html>

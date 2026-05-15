@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cana way | Validación Stock y Finalizar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Orelega+One&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/css/styles.css">
+  <link rel="icon" href="assets/icons/LOGO CANAWAY.png">
+</head>
+<body class="validation-page">
+  <header class="topbar">
+    <a class="brand" href="#" data-target="inicio" aria-label="Ir a inicio">
+      <img class="brand-logo" src="assets/icons/LOGO CANAWAY.png" alt="Cana way" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span class="brand-fallback">Cana way</span>
+    </a>
+
+    <nav class="menu" aria-label="Menu principal">
+      <a href="#" class="menu-link" data-target="inicio">Inicio</a>
+      <a href="#" class="menu-link" data-target="productos">Productos</a>
+      <a href="#" class="menu-link" data-target="contacto">Contacto</a>
+      <a href="#" class="menu-link cart" data-target="carrito" aria-label="Carrito">🛒</a>
+    </nav>
+  </header>
+
+  <main class="validation-main">
+    <h1 class="validation-title">Validación Stock y Finalizar Pedido</h1>
+
+    <div class="validation-container">
+      <!-- Columna izquierda: Validación de Stock -->
+      <div class="validation-left">
+        <!-- Stock Verification Section -->
+        <div class="validation-section">
+          <h2 class="validation-section-title">2. Validación de Stock.</h2>
+          
+          <div id="validation-items" class="validation-items">
+            <!-- Se llena dinámicamente con JavaScript -->
+          </div>
+        </div>
+
+        <!-- Order Summary Section -->
+        <div class="validation-section" id="validation-section-4" style="display: none;">
+          <h2 class="validation-section-title">4. Resumen Pedido</h2>
+          
+          <div class="validation-summary">
+            <p class="validation-summary-text">¡Ya casi finalizas!</p>
+            <p class="validation-summary-instruction">Da clic aquí para acordar el medio de pago:</p>
+            
+            <a href="#" onclick="sendWhatsApp(); return false;" class="btn-whatsapp" type="button">
+              <span class="whatsapp-icon">💬</span>
+              Enviar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna derecha: Resumen Total -->
+      <div class="validation-right">
+        <div class="validation-section">
+          <h2 class="validation-section-title">3. Resumen del Pedido Total</h2>
+          
+          <div id="validation-total-items" class="validation-total-items">
+            <!-- Se llena dinámicamente -->
+          </div>
+          
+          <div class="validation-shipping">
+            <span>Envío:</span>
+            <span id="validation-shipping-cost">Por Celular</span>
+          </div>
+          
+          <div class="validation-total">
+            <span>Total a Pagar:</span>
+            <span id="validation-total-price">$0</span>
+          </div>
+
+          <button class="btn-finalize-order" type="button" id="btn-finalize-order">
+            Finalizar Pedido
+          </button>
+
+          <button class="btn-continue-shopping" onclick="window.location.href='productos.html'" type="button">
+            Seguir Comprando
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast-notification" class="toast-notification">
+    <div class="toast-content">
+      <span class="toast-icon">✓</span>
+      <div class="toast-text">
+        <p id="toast-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../src/js/script.js"></script>
+</body>
+</html>
