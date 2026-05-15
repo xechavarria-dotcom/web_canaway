@@ -252,7 +252,14 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Obtener datos del producto
         const titleEl = card.querySelector(".product-header h2");
-        const productName = titleEl ? titleEl.textContent.trim() : "Producto";
+        const productNameFull = titleEl ? titleEl.textContent.trim() : "Producto";
+        
+        // Extraer solo el nombre del producto sin los gramos/ml
+        // Elimina: " de 250g", "210 ml", etc.
+        const productName = productNameFull
+          .split(/\s+de\s+/)[0]  // Divide por " de " si existe
+          .replace(/\s+\d+\s*(?:g|gr|ml|mL)?:?.*$/i, "") // Elimina números y unidades al final
+          .trim();
         
         // Obtener imagen
         const img = card.querySelector("img");
