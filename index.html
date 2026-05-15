@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cana way | Cafe artesanal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Orelega+One&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/icons/LOGO CANAWAY.png">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" data-target="inicio" aria-label="Ir a inicio">
+      <img class="brand-logo" src="assets/icons/LOGO CANAWAY.png" alt="Cana way" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span class="brand-fallback">Cana way</span>
+    </a>
+
+    <nav class="menu" aria-label="Menu principal">
+      <a href="#" class="menu-link" data-target="inicio">Inicio</a>
+      <a href="#" class="menu-link" data-target="productos">Productos</a>
+      <a href="#" class="menu-link" data-target="contacto">Contacto</a>
+      <a href="#" class="menu-link cart" data-target="carrito" aria-label="Carrito">🛒</a>
+    </nav>
+  </header>
+
+  <main class="hero" id="inicio">
+    <section class="hero-content">
+      <h1>Cafe artesanal del oriente Antioqueño</h1>
+      <p>Del campo a tu taza</p>
+      <a href="#" class="cta" data-target="productos">Ver productos</a>
+    </section>
+  </main>
+
+  <div id="toast-notification" class="toast-notification">
+    <div class="toast-content">
+      <span class="toast-icon">✓</span>
+      <div class="toast-text">
+        <p id="toast-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

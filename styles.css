@@ -1,0 +1,1519 @@
+:root {
+  --coffee-900: #7a3f15;
+  --coffee-700: #935225;
+  --mint: #77d3bc;
+  --mint-strong: #58b9a0;
+  --text-light: #ffffff;
+  --overlay: rgba(70, 34, 8, 0.56);
+  --page-pad: clamp(16px, 3.6vw, 40px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Adamina", serif;
+  color: var(--text-light);
+  background: #1d1207;
+}
+
+.topbar {
+  min-height: 118px;
+  background: linear-gradient(120deg, var(--coffee-900), var(--coffee-700));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px var(--page-pad);
+  position: relative;
+  z-index: 3;
+}
+
+.brand {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-logo {
+  width: clamp(100px, 12vw, 150px);
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+  filter: contrast(1.18);
+}
+
+.brand-fallback {
+  display: none;
+  font-family: "Pacifico", cursive;
+  color: #111;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: clamp(1.05rem, 1.7vw, 2rem);
+}
+
+.menu-link {
+  color: #fefefe;
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.menu-link:hover,
+.menu-link:focus-visible {
+  transform: translateY(-1px);
+}
+
+.menu-link:active,
+.menu-link.active {
+  color: #81f1cd;
+}
+
+.menu-link.cart {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.hero {
+  min-height: calc(100dvh - 118px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 16px var(--page-pad);
+  background-image:
+    linear-gradient(var(--overlay), var(--overlay)),
+    url("https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1800&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  width: min(100%, 1100px);
+  transform: translateY(-5%);
+  animation: rise-in 700ms ease-out both;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.8rem, 4.6vw, 3.6rem);
+  white-space: nowrap;
+}
+
+.hero p {
+  margin: 0 0 36px;
+  font-family: "Adamina", serif;
+  font-size: clamp(1.15rem, 2.5vw, 2.1rem);
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 32px;
+  background: var(--mint);
+  color: #123429;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.05rem, 2vw, 1.8rem);
+  border-radius: 12px;
+  padding: 18px 58px;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background: var(--mint-strong);
+  transform: translateY(-2px);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-5%);
+  }
+}
+
+.products-page {
+  background: #d3b694;
+  color: #3b1b08;
+}
+
+.products-main {
+  min-height: calc(100dvh - 118px);
+  padding: 8px var(--page-pad) 60px;
+}
+
+.products-wrap {
+  max-width: 1340px;
+  margin: 0 auto;
+}
+
+.products-title {
+  margin: 12px 0 18px;
+  font-family: "Orelega One", serif;
+  font-size: clamp(2rem, 4.1vw, 3.3rem);
+  color: #582610;
+}
+
+.products-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.tab-pill {
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 24px;
+  font-family: "Orelega One", serif;
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
+  color: #f9dfcb;
+  background: #d8ad88;
+}
+
+.tab-pill-active {
+  background: #7d2d0b;
+}
+
+.products-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.product-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: visible;
+  background: #e5e5e5;
+  box-shadow: 0 8px 24px rgba(47, 18, 3, 0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-right: 36px;
+}
+
+.info-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.info-btn:hover {
+  transform: scale(1.1);
+  background: #f0f0f0;
+}
+
+.info-icon {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.info-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f5a7b8;
+  border-radius: 12px;
+  padding: 20px;
+  width: 85%;
+  max-width: 280px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+  font-family: "Adamina", serif;
+}
+
+.info-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  font-weight: bold;
+}
+
+.info-close:hover {
+  color: #000;
+}
+
+.info-label {
+  margin: 8px 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #2d1c11;
+}
+
+/* Size Selector Modal */
+.size-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.size-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+.size-modal-content {
+  background: #f5e8d8;
+  border-radius: 12px;
+  padding: clamp(24px, 5vw, 32px);
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 101;
+}
+
+.size-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: var(--coffee-900);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.size-modal-close:hover {
+  color: var(--coffee-700);
+}
+
+#modal-product-name {
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--coffee-900);
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.modal-sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.size-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.size-option:hover {
+  border-color: var(--mint);
+  background: #fafaf8;
+}
+
+.size-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--mint);
+}
+
+.size-option label {
+  flex: 1;
+  cursor: pointer;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: var(--coffee-900);
+  margin: 0;
+}
+
+.size-price {
+  font-family: "Orelega One", serif;
+  font-size: clamp(1rem, 1.9vw, 1.2rem);
+  color: var(--coffee-900);
+  font-weight: 600;
+}
+
+.size-option input[type="radio"]:checked + label,
+.size-option input[type="radio"]:checked ~ .size-price {
+  color: var(--mint-strong);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-btn-confirm,
+.modal-btn-cancel {
+  flex: 1;
+  padding: clamp(12px, 2vw, 16px);
+  border: none;
+  border-radius: 8px;
+  font-family: "Orelega One", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.modal-btn-confirm {
+  background: var(--mint);
+  color: var(--coffee-900);
+}
+
+.modal-btn-confirm:hover {
+  background: var(--mint-strong);
+  transform: translateY(-2px);
+}
+
+.modal-btn-confirm:active {
+  transform: translateY(0);
+}
+
+.modal-btn-cancel {
+  background: #ddd;
+  color: #333;
+}
+
+.modal-btn-cancel:hover {
+  background: #ccc;
+}
+
+.product-card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px 10px 0 0;
+}
+
+.product-info {
+  padding: 14px 14px 12px;
+  color: #2d1c11;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-info h2,
+.product-info h3 {
+  margin: 0;
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.14rem, 1.8vw, 1.6rem);
+}
+
+.product-info h3 {
+  margin-top: 3px;
+}
+
+.price {
+  margin: 1px 0;
+  font-size: clamp(1.2rem, 2.1vw, 1.7rem);
+  font-weight: 700;
+}
+
+.card-action {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.state-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 28px;
+  background: #73cfb3;
+  color: #143528;
+  font-family: "Orelega One", serif;
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.state-btn:hover {
+  transform: scale(1.05);
+}
+
+.state-btn:active {
+  transform: scale(0.98);
+}
+
+.state-btn-off {
+  background: #cd4d4d;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.state-btn-off:hover {
+  transform: none;
+}
+
+.units-box {
+  font-family: "Orelega One", serif;
+  color: #2d1f13;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  background: #fff;
+  border: 2px solid #8b6f47;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alcohol-warning {
+  margin-top: 30px;
+  text-align: center;
+  padding: 16px 20px;
+  background: var(--coffee-900);
+  border-radius: 8px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alcohol-warning p {
+  color: #fff;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Contact Page */
+.contact-page {
+  background: #d3b694;
+  min-height: 100dvh;
+}
+
+.contact-main {
+  padding: clamp(30px, 5vw, 60px) var(--page-pad) 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  font-family: "Orelega One", serif;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  color: var(--coffee-900);
+  text-align: center;
+  margin: 0 0 clamp(35px, 5vw, 50px) 0;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(25px, 4vw, 40px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-left,
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 28px);
+}
+
+.contact-card,
+.whatsapp-card,
+.about-card {
+  background: #f5e8d8;
+  border-radius: 12px;
+  padding: clamp(20px, 3.5vw, 28px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contact-subtitle {
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  color: var(--coffee-900);
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+}
+
+.contact-item {
+  margin-bottom: 8px;
+}
+
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-details {
+  font-family: "Adamina", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: #3d2814;
+  line-height: 1.6;
+}
+
+.contact-text {
+  margin: 0;
+}
+
+.contact-subtext {
+  margin: 4px 0 0 0;
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  color: #5d4a37;
+}
+
+.contact-subtitle-center {
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  color: var(--coffee-900);
+  margin: 0 0 14px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact-description {
+  font-family: "Adamina", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: #3d2814;
+  line-height: 1.7;
+  margin: 0 0 18px 0;
+  text-align: center;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  background: #25d366;
+  color: #fff;
+  font-family: "Orelega One", serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  text-align: center;
+}
+
+.whatsapp-btn:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-btn:active {
+  transform: translateY(0);
+}
+
+.whatsapp-icon-svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.about-text {
+  font-family: "Adamina", serif;
+  font-size: clamp(0.9rem, 1.7vw, 1.05rem);
+  color: #3d2814;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+}
+
+.contact-footer {
+  background: var(--coffee-900);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
+.contact-footer p {
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .topbar {
+    height: auto;
+    padding: 16px var(--page-pad);
+    gap: 14px;
+    flex-direction: column;
+  }
+
+  .menu {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: calc(100dvh - 160px);
+    padding-top: 30px;
+  }
+
+  .hero h1 {
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  .hero p {
+    margin-bottom: 30px;
+  }
+
+  .cta {
+    width: min(320px, 90%);
+  }
+
+  .products-main {
+    min-height: calc(100dvh - 160px);
+    padding: 18px var(--page-pad) 28px;
+  }
+
+  .products-tabs {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card img {
+    height: 300px;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Cart Page */
+.cart-page {
+  background: #d3b694;
+  min-height: 100dvh;
+}
+
+.cart-main {
+  padding: clamp(30px, 5vw, 60px) var(--page-pad) 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.cart-title {
+  font-family: "Orelega One", serif;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  color: var(--coffee-900);
+  text-align: center;
+  margin: 0 0 clamp(35px, 5vw, 50px) 0;
+}
+
+.cart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(25px, 4vw, 40px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cart-left,
+.cart-right {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 28px);
+}
+
+.cart-section {
+  background: #d4a976;
+  border-radius: 12px;
+  padding: clamp(20px, 3.5vw, 30px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cart-section-title {
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--coffee-900);
+  margin: 0 0 20px 0;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  font-family: "Orelega One", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: var(--coffee-900);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #e8d5c4;
+  border: none;
+  border-radius: 6px;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: var(--coffee-900);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-input::placeholder {
+  color: #9d7d68;
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(119, 211, 188, 0.3);
+}
+
+.btn-next {
+  background: #b5d989;
+  color: var(--coffee-900);
+  border: none;
+  border-radius: 8px;
+  padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 28px);
+  font-family: "Orelega One", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-next:hover {
+  background: #a5cc78;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-next:active {
+  transform: translateY(0);
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.empty-cart-message {
+  color: #666;
+  text-align: center;
+  padding: 20px;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background: #f5e8d8;
+  border-radius: 8px;
+}
+
+.cart-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-name {
+  margin: 0 0 4px 0;
+  font-family: "Orelega One", serif;
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  color: var(--coffee-900);
+  font-weight: 600;
+}
+
+.cart-item-price {
+  margin: 0;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+  color: #666;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--coffee-900);
+  font-weight: bold;
+  padding: 0 6px;
+  transition: color 0.2s;
+}
+
+.qty-btn:hover {
+  color: var(--mint);
+}
+
+.qty-display {
+  min-width: 20px;
+  text-align: center;
+  font-family: "Orelega One", serif;
+  font-size: 0.95rem;
+  color: var(--coffee-900);
+}
+
+.cart-item-total {
+  font-family: "Orelega One", serif;
+  font-size: clamp(0.9rem, 1.7vw, 1.05rem);
+  color: var(--coffee-900);
+  font-weight: 600;
+  min-width: 80px;
+  text-align: right;
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: transform 0.2s, opacity 0.2s;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-remove-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.cart-item-remove:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.cart-item-remove:active {
+  transform: scale(0.95);
+}
+
+.cart-shipping {
+  border-top: 2px solid #c4a372;
+  padding-top: 14px;
+  margin-bottom: 14px;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: var(--coffee-900);
+}
+
+.shipping-option {
+  font-weight: 600;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-top: 2px solid #c4a372;
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: var(--coffee-900);
+  font-weight: 600;
+}
+
+.total-amount {
+  color: #d9534f;
+}
+
+.cart-status {
+  text-align: center;
+  padding: 16px;
+  background: #f5e8d8;
+  border-radius: 6px;
+  margin-top: 12px;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: #666;
+}
+
+.cart-status p {
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .brand-logo {
+    width: clamp(90px, 30vw, 130px);
+  }
+
+  .menu {
+    font-size: 1.35rem;
+  }
+
+  .menu-link.cart {
+    font-size: 1.5rem;
+  }
+
+  .hero {
+    min-height: calc(100dvh - 180px);
+  }
+
+  .cta {
+    padding: 16px 24px;
+  }
+
+  .cart-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+  }
+
+  .cart-item-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-controls {
+    gap: 6px;
+    padding: 2px 6px;
+  }
+
+  .qty-btn {
+    padding: 0 4px;
+    font-size: 0.9rem;
+  }
+
+  .cart-item-total {
+    min-width: 70px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ============ TOAST NOTIFICATION ============ */
+.toast-notification {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: linear-gradient(135deg, var(--coffee-700) 0%, var(--coffee-900) 100%);
+  color: #fefefe;
+  padding: 18px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  font-family: "Adamina", serif;
+  z-index: 200;
+  animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: 380px;
+  word-wrap: break-word;
+}
+
+.toast-notification.show {
+  display: flex;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.toast-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  color: var(--mint);
+  font-weight: bold;
+}
+
+.toast-text {
+  flex: 1;
+}
+
+.toast-text p {
+  margin: 0;
+  font-size: inherit;
+  line-height: 1.4;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(400px) translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(400px) translateY(100px);
+  }
+}
+
+.toast-notification.hide {
+  animation: slideOut 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Toast responsivo */
+@media (max-width: 860px) {
+  .toast-notification {
+    bottom: 30px;
+    right: 30px;
+    left: 30px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .toast-notification {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+
+  .toast-icon {
+    font-size: 1.4rem;
+  }
+}
+
+/* ============ VALIDATION PAGE STYLES ============ */
+.validation-page {
+  background: #d3b694;
+  min-height: 100dvh;
+  padding-bottom: 40px;
+}
+
+.validation-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--page-pad);
+}
+
+.validation-title {
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--coffee-900);
+  text-align: center;
+  margin: 30px 0;
+  font-weight: 700;
+}
+
+.validation-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.validation-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.validation-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.validation-section {
+  background: #e8d5c4;
+  border-radius: 12px;
+  padding: clamp(16px, 3vw, 24px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.validation-section-title {
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--coffee-900);
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  border-bottom: 2px solid var(--coffee-700);
+  padding-bottom: 12px;
+}
+
+.validation-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.validation-item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: #f5e8d8;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.validation-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.validation-item-info {
+  flex: 1;
+}
+
+.validation-item-name {
+  font-family: "Adamina", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: var(--coffee-900);
+  margin: 0 0 4px 0;
+  font-weight: 600;
+}
+
+.validation-item-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: var(--coffee-900);
+}
+
+.validation-item-status-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.status-available {
+  background: #4CAF50;
+  color: white;
+}
+
+.status-unavailable {
+  background: #f44336;
+  color: white;
+}
+
+.validation-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.validation-summary-text {
+  font-family: "Adamina", serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--coffee-900);
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.validation-summary-instruction {
+  font-family: "Adamina", serif;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  color: var(--coffee-900);
+  margin: 0;
+  text-align: center;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #fefefe;
+  border: none;
+  border-radius: 10px;
+  padding: clamp(14px, 2.5vw, 18px) clamp(20px, 3vw, 28px);
+  font-family: "Orelega One", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe54;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-whatsapp:active {
+  transform: translateY(0);
+}
+
+.whatsapp-icon {
+  font-size: 1.5rem;
+}
+
+.btn-finalize-order {
+  background: linear-gradient(135deg, var(--coffee-700) 0%, var(--coffee-900) 100%);
+  color: #fefefe;
+  border: none;
+  border-radius: 10px;
+  padding: clamp(14px, 2.5vw, 18px) clamp(20px, 3vw, 28px);
+  font-family: "Orelega One", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.btn-finalize-order:hover {
+  background: linear-gradient(135deg, var(--coffee-900) 0%, #5a2c0e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-finalize-order:active {
+  transform: translateY(0);
+}
+
+.validation-total-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.validation-total-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px;
+  background: #f5e8d8;
+  border-radius: 6px;
+}
+
+.validation-total-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.validation-total-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.validation-total-item-name {
+  font-family: "Adamina", serif;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: var(--coffee-900);
+  margin: 0;
+  font-weight: 600;
+}
+
+.validation-total-item-price {
+  font-family: "Adamina", serif;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  color: var(--coffee-700);
+  margin: 0;
+}
+
+.validation-total-item-qty {
+  font-family: "Adamina", serif;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  color: var(--coffee-900);
+  margin: 0;
+}
+
+.validation-total-item-subtotal {
+  font-family: "Adamina", serif;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: var(--coffee-900);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.validation-shipping {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Adamina", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: var(--coffee-900);
+  margin: 16px 0;
+  padding: 12px 0;
+  border-top: 1px solid rgba(122, 63, 21, 0.2);
+  border-bottom: 1px solid rgba(122, 63, 21, 0.2);
+}
+
+.validation-total {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Orelega One", serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  color: var(--coffee-900);
+  margin: 16px 0 24px 0;
+  font-weight: 700;
+}
+
+.btn-continue-shopping {
+  background: #d4b5a0;
+  color: var(--coffee-900);
+  border: none;
+  border-radius: 10px;
+  padding: clamp(14px, 2.5vw, 18px) clamp(20px, 3vw, 28px);
+  font-family: "Orelega One", serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-continue-shopping:hover {
+  background: #c4a590;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-continue-shopping:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .validation-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
