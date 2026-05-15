@@ -274,11 +274,11 @@ document.addEventListener("DOMContentLoaded", () => {
           if (priceMatch) {
             const price = parseInt(priceMatch[0].replace(/[\$\s,]/g, ""));
             
-            // Buscar el label del tamaño (ej: "250g", "500g")
+            // Buscar el label del tamaño (ej: "250g", "500g", "210 ml", "750 ml")
             let sizeLabel = "Opción " + (index + 1);
             if (titleIndex < allTitles.length) {
               const titleText = allTitles[titleIndex].textContent;
-              const match = titleText.match(/(\d+[a-zA-Z]+)/);
+              const match = titleText.match(/(\d+\s*(?:g|gr|ml|mL))/);
               if (match) {
                 sizeLabel = match[1];
               }
@@ -527,7 +527,7 @@ function sendWhatsApp() {
   
   // URL encode the message
   const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/3113303428?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/3104444803?text=${encodedMessage}`;
   
   // Clear the cart, contact info, and shipping cost BEFORE opening WhatsApp
   localStorage.removeItem("canaway_cart");
